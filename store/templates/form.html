@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+
+<form action="register" method="post">
+    {% csrf_token %}
+   <div class="form-group row">
+    <input type="text" name="username" placeholder="enter your Name"><br>
+     <input type="date" name="DOB" placeholder="enter your DOB"><br>
+     <input type="number" name="age" placeholder="enter your age"><br>
+
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+  <label class="form-check-label" style="color:white;" for="inlineRadio1">Male</label>
+
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+  <label class="form-check-label" style="color:white;" for="inlineRadio2">Female</label>
+
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+  <label class="form-check-label" style="color:white;" for="inlineRadio3">Other</label>
+</div>
+</div>
+</div><br>
+
+     <input type="email" name="email" placeholder="enter your email"><br>
+     <input type="number" name="ph" placeholder="confirm your phone number"><br>
+    <input type="text" name="address" placeholder="enter your address"><br>
+
+    <div>
+      <b> Department</b>
+  <select class="" name="select1" id="select1">
+    <option value="1">Commerce</option>
+    <option value="2">Science</option>
+    <option value="3">Humanities</option>
+
+  </select>
+     </div>
+<div >
+    <b>Courses</b>
+  <select class="" name="select2" id="select2">
+    <option value="1">BBA</option>
+    <option value="1">B.com</option>
+    <option value="1">M.com</option>
+    <option value="2">Btech</option>
+    <option value="2">MBBS</option>
+    <option value="3">BA history</option>
+    <option value="3">BA sociology</option>
+    <option value="3">BA Malayalam<option>
+</select>
+</div>
+<script>
+    var $select1 = $( '#select1' ),
+		$select2 = $( '#select2' ),
+        $options = $select2.find( 'option' );
+
+    $select1.on( 'change', function() {
+	$select2.html( $options.filter( '[value="' + this.value + '"]' ) );
+} ).trigger( 'change' );
+</script>
+
+    <div>
+      <b>Purpose</b>
+  <select class="" name="select3" id="select3">
+    <option value="1">For enquiry</option>
+    <option value="2">Place order</option>
+    <option value="3">Return</option>
+
+  </select>
+</div>
+    <div>
+        <b>Materials Provide:</b>
+    <div class="form-check">
+  <input class="form-check-input" style="color:white;" type="checkbox" value="" id="flexCheckDefault1">
+  <label class="form-check-label" for="flexCheckDefault1">
+    Debit notebook
+  </label>
+</div>
+    <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+  <label class="form-check-label" for="flexCheckDefault2">
+    Pen
+  </label>
+</div>
+    <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+  <label class="form-check-label" for="flexCheckDefault3">
+    Exam Papers
+  </label>
+</div>
+    </div>
+
+
+    <a href="{% url 'msg' %}" class="btn btn-primary" role="button" aria-pressed="true" style="color:red;">submit</a>
+    <a href="{% url 'logout' %}" class="btn btn-primary" role="button" aria-pressed="true" style="color:red;">Logout</a>
+</form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block body %}
+<style>
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+</style>
+<div class="container">
+    <h1 style="color:aqua;"><b>Login Here</b></h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="container">
+ <div class="form-group row">
+  <input type="text" name="username" placeholder="enter your username"><br>
+
+     <input type="password" name="password" placeholder="enter your password"><br>
+
+
+    </div>
+    <input style="background-color:blue;" type="submit">
+     <a class="nav-link" href="{% url 'register' %}" style="font-size:20px;color:white;">Register</a>
+
+</form>
+    </div>
+     {% for msg in messages %}
+<h3  style="color:white;">{{msg}}</h3>
+{% endfor %}
+</div>
+{% endblock %}

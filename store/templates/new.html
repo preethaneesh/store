@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1 style="color:white;">Hai {{user.username}} welocome,,Please click here</h1>
+<a href="{% url 'forms' %}" class="btn btn-primary" role="button" aria-pressed="true" style="color:blue;">Click</a>
+{% endblock %}
